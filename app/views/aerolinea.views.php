@@ -17,7 +17,7 @@ class aerolineasView {
         require './templates/listasaero.phtml';
     }
 
-    public function showListarAerolineas($aerolineas, $personas) {
+    public function showListAerolineas($aerolineas, $personas) {
         // la vista define una nueva variable con la cantida de tareas
         $count = count($aerolineas);
 

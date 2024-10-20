@@ -8,25 +8,25 @@ class aerolineasControllers{
 
     public function __construct($res) {
         $this->models = new aerolineasModels(); // Inicializa la propiedad con una instancia de fabricaModel
-        $this->view = new aerolineasView($res->user); // Asegúrate de inicializar también la vista si es necesario
+        $this->views = new aerolineasView($res->user); // Asegúrate de inicializar también la vista si es necesario
     }
 
 
     public function showAerolineas(){
         $aerolineas = $this->models->getAerolineas();
-        return $this->view->showAerolineas($aerolineas);
+        return $this->views->showAerolineas($aerolineas);
     }
 
     public function showListarAerolineas($models){
         $models = $models->getpersonas();
         $aerolineas = $this->models->getAerolineas();
-        return $this->view->showListarAerolineas($aerolineas, $models);
+        return $this->views->showListAerolineas($aerolineas, $models);
     }
 
     public function showAerolineaDetails($id, $personas) {
         $aerolinea = $this->models->getAerolinea($id);
         if ($aerolinea) {
-            return $this->view->showdetailAerolinea($aerolinea, $personas);
+            return $this->views->showdetailAerolinea($aerolinea, $personas);
         }
     }
 
@@ -66,7 +66,7 @@ class aerolineasControllers{
 
     public function ListaaddAero(){
         $aerolineas = $this->models->getAllAerolineas();
-        $this->views->showListarAerolineas($aerolineas);
+        $this->views->showListaAerolineas($aerolineas);
     }
 
     public function deleteAero($id){

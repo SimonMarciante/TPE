@@ -76,7 +76,7 @@ class personasControllers{
         }
     
     
-        $nombre = $_POST['nombre'];
+        $nombre = $_POST['Nombre'];
         $id_aerolinea = $_POST['id_aerolinea']; 
         $edad = $_POST['edad']; 
         $destino = $_POST['Destino']; 
@@ -95,7 +95,7 @@ class personasControllers{
         header('Location: ' . 'showAddPersona/');
     }
 
-    public function deletePerson($id){
+    public function deletePersona($id_persona){
         $persona = $this->models->getPersona($id_persona);
         if (!$persona) {
             return $this->views->showError("No existe la tarea con el id=$id_persona");
@@ -136,7 +136,7 @@ class personasControllers{
             return $this->views->showError('Falta completar la cantidad de pasajes');
         }
     
-        $nombre = $_POST['nombre'];
+        $nombre = $_POST['Nombre'];
         $id_aerolinea = $_POST['id_aerolinea']; 
         $edad = $_POST['edad']; 
         $destino = $_POST['Destino']; 

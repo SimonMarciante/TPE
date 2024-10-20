@@ -34,7 +34,7 @@ switch($params[0]){
         $controller = new aerolineasControllers($res);
         $controller2 = new personasControllers($res);
         $models = $controller2-> showPersonasid($params[1]);
-        $controller->showAerolineaDetails($params[1], $models); // El segundo parámetro es el ID de la fábrica
+        $controller->showAerolineaDetails($params[1], $models); 
         break;
     case 'showAddAerolinea':
         sessionAuthMiddleware($res);
@@ -52,7 +52,7 @@ switch($params[0]){
         sessionAuthMiddleware($res);
         verifyAuthMiddleware($res);
         $controller = new aerolineasControllers($res);
-        $controller-> deleteFab($params[1]);
+        $controller-> deleteAero($params[1]);
         break;
     case 'showEditAerolinea':
         sessionAuthMiddleware($res);
@@ -67,7 +67,7 @@ switch($params[0]){
         $controller->editAero($params[1]);
         break;
 
-        ///////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
 
     case 'listarpersona':
         sessionAuthMiddleware($res);
@@ -108,7 +108,7 @@ switch($params[0]){
         $controller = new personasControllers($res);
         $controller2 = new aerolineasModels($res);
         $aerolineas = $controller2->getAerolineas();
-        $controller->showEditAerolinea($params[1], $aerolineas);
+        $controller->showEditPersona($params[1], $aerolineas);
         break;
     case 'editPersona':
         sessionAuthMiddleware($res);

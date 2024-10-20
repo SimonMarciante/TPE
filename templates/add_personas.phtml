@@ -1,5 +1,5 @@
 <?php if ($this->user): ?>
-    <form method="post" action="addPersonas">
+    <form method="post" action="addPersona">
     <div class="mb-3">
         <label for="Nombre" class="form-label">Nombre:</label>
         <input name="Nombre" type="text" class="form-control" required>
@@ -12,13 +12,16 @@
         <label for="Cantidad" class="form-label">Cantidad de pasajes:</label>
         <input name="Cantidad" type="number" class="form-control" required>
     </div>
-    //hasta aca cambie //
+    <div class="mb-3">
+        <label for="Destiino" class="form-label">Destino:</label>
+        <input name="Destino" type="text" class="form-control" required>
+    </div>
     <div class="mb-3">
         <label for="id_aerolinea" class="form-label">Aerolinea:</label>
         <select name="id_aerolinea" class="form-control" required>
             <option value="" disabled selected>Seleccione una aerolinea</option>
             <?php foreach ($aerolineas as $aerolinea): ?>
-                <option value="<?= $aerolinea->id; ?>"><?= $aerolinea->nombre; ?></option>
+                <option value="<?= $aerolinea->id; ?>"><?= $aerolinea->Nombre; ?></option>
             <?php endforeach; ?>
         </select>
     </div>

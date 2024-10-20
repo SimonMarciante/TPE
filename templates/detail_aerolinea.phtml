@@ -20,7 +20,7 @@
         <?php if (!empty($personas)): ?>
             <?php foreach ($personas as $persona): ?>
                 <li class="list-group-item">
-                    <strong><?= $persona->Nombre; ?></strong> - <strong>Cantidad de pasajes:</strong> $<?= number_format($persona->Cantidad, 2); ?> - <strong>Destino:</strong> <?= $persona->Destino; ?>
+                    <strong><?= $persona->Nombre; ?></strong> - <strong>Cantidad de pasajes:</strong> $<?= number_format($persona->Cantidad); ?> - <strong>Destino:</strong> <?= $persona->Destino; ?>
                 </li>
             <?php endforeach; ?>
         <?php else: ?>

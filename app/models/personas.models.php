@@ -44,8 +44,8 @@
 
 
         public function insertPersona($nombre, $edad, $cantidad, $destino, $id_aerolinea) {
-            $query = $this->db->prepare('INSERT INTO persona(id_aerolinea, Nombre, edad, Cantidad, Destino) VALUES (?, ?, ?, ?, ?)');
-            $query->execute([$nombre, $precio, $stock, $id_fabrica]);
+            $query = $this->db->prepare('INSERT INTO persona(Nombre, edad, Cantidad, Destino, id_aerolinea) VALUES (?, ?, ?, ?, ?)');
+            $query->execute([$nombre, $edad, $cantidad, $destino, $id_aerolinea]);
             return $this->db->lastInsertId();
         }
 
@@ -55,15 +55,16 @@
             
         }
 
-        public function updatePersona($id_persona, $nombre, $edad, $cantidad, $destino, $id_aerolinea) {
-            $query = $this->db->prepare('UPDATE persona SET Nombre = ?, edad = ?, Cantidad = ?, Destino = ?, id_aerolinea = ? WHERE id_persona = ?');
+        public function updatePersona($nombre, $edad, $cantidad, $destino, $id_aerolinea){
+            $query = $this->db->prepare ('UPDATE persona SET Nombre = ?, edad = ?, Cantidad = ?, id_aerolinea = ?, Destino = ? WHERE persona . id_persona = ?');
             $query->execute([$nombre, $edad, $cantidad, $destino, $id_aerolinea, $id_persona]);
+        
         }
 
-        public function getAerolineaById($id_aerolinea) {
+        public function getAerolineaById($id) {
             $query = $this->db->prepare('SELECT * FROM aerolinea WHERE id = ?');
-            $query->execute([$id_aerolinea]);
-            return $query->fetch(PDO::FETCH_OBJ); // Devuelve la fábrica como objeto
+            $query->execute([$id]);
+            return $query->fetch(PDO::FETCH_OBJ); // Devuelve la aerolinea como objeto
         }
     }
 
