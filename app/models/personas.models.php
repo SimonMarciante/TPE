@@ -1,10 +1,8 @@
 <?php
-
-    class personasModels{
-        private $db;
-
+require_once('app/models/model.php');
+    class personasModels extends Model{
         public function __construct(){
-            $this->db = new PDO('mysql:host=localhost;dbname=agencia_viajes;charset=utf8', 'root', '');
+           parent::__construct();
         }
         public function getPersonas(){
             //Ejecuto la consulta
@@ -22,7 +20,6 @@
             $query->execute([$id_aerolinea]);
 
             $persona = $query->fetchAll(PDO::FETCH_OBJ); 
-            
             return $persona;
         }
 
@@ -55,9 +52,9 @@
             
         }
 
-        public function updatePersona($nombre, $edad, $cantidad, $destino, $id_aerolinea){
-            $query = $this->db->prepare ('UPDATE persona SET Nombre = ?, edad = ?, Cantidad = ?, id_aerolinea = ?, Destino = ? WHERE persona . id_persona = ?');
-            $query->execute([$nombre, $edad, $cantidad, $destino, $id_aerolinea, $id_persona]);
+        public function updatePersona($nombre, $edad, $cantidad, $destino, $id_aerolinea,$id_persona){
+            $query = $this->db->prepare ('UPDATE persona SET Nombre = ?, edad = ?, Cantidad = ?, id_aerolinea = ?, Destino = ? WHERE id_persona = ?');
+            $query->execute([$nombre, $edad, $cantidad, $id_aerolinea, $destino, $id_persona]);
         
         }
 

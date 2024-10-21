@@ -10,6 +10,6 @@ li.finished .label {
 }
 
 .icon-logo {
-    width: 50px;  /* Ajusta el ancho de la imagen */
-    height: 50px; /* Ajusta la altura de la imagen */
+    width: 50%; 
+    height: 50%; 
 }

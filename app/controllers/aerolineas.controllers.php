@@ -7,7 +7,7 @@ class aerolineasControllers{
     private $views;
 
     public function __construct($res) {
-        $this->models = new aerolineasModels(); // Inicializa la propiedad con una instancia de fabricaModel
+        $this->models = new aerolineasModels();
         $this->views = new aerolineasView($res->user); // Asegúrate de inicializar también la vista si es necesario
     }
 
@@ -60,7 +60,7 @@ class aerolineasControllers{
         $id = $this->models->insertAerolinea($nombre, $pais, $fundacion, $servicios);
        
     
-        // redirijo al showAddFabrica (también podriamos usar un método de una vista para motrar un mensaje de éxito)
+        // redirijo al showAddAerolinea (también podriamos usar un método de una vista para motrar un mensaje de éxito)
         header('Location: ' . 'showAddAerolinea/');
     }
 

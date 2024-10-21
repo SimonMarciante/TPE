@@ -7,8 +7,8 @@ class personasControllers{
     private $views;
 
     public function __construct($res) {
-        $this->models = new personasModels(); // Inicializa la propiedad con una instancia de personasModel
-        $this->views = new personasViews($res->user); // Asegúrate de inicializar también la vista si es necesario
+        $this->models = new personasModels(); 
+        $this->views = new personasViews($res->user); 
     }
 
     public function showListarPersonas(){
@@ -142,7 +142,7 @@ class personasControllers{
         $destino = $_POST['Destino']; 
         $cantidad = $_POST['Cantidad']; 
     
-        $this->models->updatePersona($nombre, $id_aerolinea, $edad, $destino, $cantidad);
+        $this->models->updatePersona($nombre, $edad, $cantidad, $destino, $id_aerolinea, $id_persona );
     
         header('Location: ' . BASE_URL . 'showAddPersona/');
     }

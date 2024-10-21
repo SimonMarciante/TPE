@@ -1,10 +1,8 @@
 <?php
-
-    class aerolineasModels{
-        private $db;
-
+require_once('app/models/model.php');
+    class aerolineasModels extends Model{
         public function __construct(){
-            $this->db = new PDO('mysql:host=localhost;dbname=agencia_viajes;charset=utf8', 'root', '');
+           parent::__construct();
         }
 
         public function getAerolineas(){
@@ -64,7 +62,7 @@
 
         public function updateAerolinea($id, $nombre, $pais, $fundacion, $servicios) {
             $query = $this->db->prepare('UPDATE aerolinea SET Nombre = ?, Pais = ?, Fundacion = ?, servicios = ? WHERE id = ?');
-            $query->execute([$id, $nombre, $pais, $fundacion, $servicios]);
+            $query->execute([$nombre, $pais, $fundacion, $servicios,$id]);
         }
     }
 

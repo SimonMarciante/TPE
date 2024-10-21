@@ -75,12 +75,12 @@ switch($params[0]){
         $controller -> showPersonas();
         break;
     case 'detallespersona':
-        $controller = new personasControllers($res);
-        $controller2 = new aerolineasControllers($res);
-        $persona = $controller->getPersona($params[1]);
+        $controller = new personasControllers(res: $res);
+        $controller2 = new aerolineasControllers(res: $res);
+        $persona = $controller->getPersona(id_persona: $params[1]);
         $id_aerolinea = $persona->id_aerolinea;
         $aerolinea = $controller2-> showAerolineasid($id_aerolinea);
-        $controller->showPersonaDetails($params[1], $aerolinea);
+        $controller->showPersonaDetails(id_persona: $params[1], aerolinea: $aerolinea);
         break;
     case 'showAddPersona':
         sessionAuthMiddleware($res);
